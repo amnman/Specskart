@@ -1,0 +1,39 @@
+<h1> SPECSKART</h1>
+
+<div class="ss">
+  <ul >
+  <li >
+    <a routerLink="cart" (click)="home()" > Home</a>
+    </li>
+      <li >
+        <a> Cart</a>
+      </li>
+
+  </ul>
+</div>
+
+  <div class="card"  *ngFor="let cl of cart">
+    <img class="card-img-top" [src]="cl.image" alt="Card image" style="width: 300px;height: 250px;margin-left: 450px;">
+    <div class="card-body text-center">
+      <p *ngIf="emptycart">Cart Empty</p>
+      <p class="card-text">Id:{{cl.id}}</p>
+      <p class="card-text">Product:{{cl.spect}}</p>
+      <p class="card-text">Rs.{{cl.price}}</p>
+      <button class="btn btn-primary" style="float:right;background-color: red;color: seashell;" (click)="delcart(cl)">Delete</button>
+    </div>
+  </div>
+  <h1>Total:Rs.{{total}}</h1>
+  <button class="btn btn-primary" style="float:right;background-color:darkcyan; color: seashell;" (click)="buycart()" data-toggle="modal" data-target="#mymodal">Buy now</button>
+
+<div class="modal" id="mymodal"> 
+  <div class="card" *ngFor="let b of buy">
+      <p class="card-text">Id:{{b.id}}</p>
+      <p class="card-text">Product:{{b.spect}}</p>
+      <p class="card-text">Rs.{{b.price}}</p>
+      <p class="card-text">Total: {{total}}</p>
+  </div>
+  <button class="btn btn-primary mr-1" data-dismiss="modal" (click)="myalert()">Buy</button>
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+</div>
+ 
+

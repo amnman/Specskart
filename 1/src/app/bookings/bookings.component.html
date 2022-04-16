@@ -1,0 +1,43 @@
+
+<div class="ss">
+<ul>
+
+      <li>
+          <a  [routerLink] = "['home']" (click) = "home()"> Home</a>
+        </li>
+        <li>
+    
+        <a  [routerLink] = "['bookings']" > Bookings</a>
+    </li>
+      
+    </ul>
+</div>
+
+<br>
+<br>
+
+
+<div class="card-body" >
+    <div class="container" >
+<div>
+    <form [formGroup]="bookingform" (ngSubmit)="onSubmit()">
+    
+        <label>Name</label>
+        <input style="width:125px;" formControlName="name" type="text" class="form-control" [ngClass]="{'is-invalid':submitted && g.name.errors}"/>
+        <div *ngIf="submitted && g.name.errors" class="invalid-feedback">
+            <div *ngIf="g.name.errors.required">Name is required</div>
+        </div>
+        <label>Date</label>
+        <input style="width: 200px;" formControlName="date" type="datetime-local" class="form-control" [ngClass]="{'is-invalid':submitted && g.date.errors}"/>
+        <div *ngIf="submitted && g.date.errors" class="invalid-feedback">
+            <div *ngIf="g.date.errors.required">Date is required</div>
+        </div>
+        <br><br>
+
+        <button class="btn btn-primary mr-1">Book an Appointment</button>
+
+    </form>
+</div>
+<br>
+<br>
+

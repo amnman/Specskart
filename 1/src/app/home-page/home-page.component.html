@@ -1,0 +1,67 @@
+
+<div class="n">
+<h1><b>specskart</b></h1>
+</div>
+
+<div class="ss">
+  
+  <ul id="myc" >
+    <li>
+      <a  [routerLink] = "['home']" > Home</a>
+    </li>
+  <li >
+    <a  [routerLink] = "['bookings']" (click)="booking()"> Bookings</a>
+    </li>
+    <li >
+      <a  [routerLink] = "['speclist']" (click)="specs()"> Speclist</a>
+    </li>
+      <li>
+        <a  [routerLink] = "['booksection']"  (click)="bookingsection()"> Booksection</a>
+      </li>
+      <li >
+        <a  routerLink = "changepwd" (click)="chng()"> Changepwd</a>
+      </li>
+      <li >
+        <a [routerLink] = "['cart']" (click)="cart()"> Cart</a>
+      </li>
+      <li>
+        <a>{{username}}</a>
+      </li>
+      <li >
+        <a [routerLink] = "['cart']" (click)="logout()"> LogOut</a>
+      </li>
+
+  </ul>
+</div>
+<div class="container-fluid">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators" >
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+    
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQP7fOIjiikSdyalcQ6KTcmvgPCmoij0r1K36DibTqmct2DP5nl" alt="Specs">
+        </div>
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaFoIIvcB44cIJPUYleWheDD_iJZMHqGnp2gsvod2pnpmzPLe0" alt="Buy One Get One">
+        </div>
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqcMzpsfA1uvt4jwJaqPEW_07u756LuQR5At6F7e0jfmxZn2L2" alt="Specs">
+        </div>
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.ss{
+    text-align: center;
+    
+
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 55px;
+    text-decoration: none;
+
+  }
+  ul{
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+}
+li a{
+    float: left;
+  }
+

@@ -1,0 +1,24 @@
+<h1> SPECSKART</h1>
+
+<div class="ss">
+  <ul >
+  <li >
+    <a routerLink="cart" (click)="home()" > Home</a>
+    </li>
+      <li >
+        <a> Specs</a>
+      </li>
+
+  </ul>
+</div>
+<div class="card-columns">
+    <div class="card"  *ngFor="let p of products">
+      <img class="card-img-top" [src]="p.image" alt="Card image" style="width: 300px;height: 200px;">
+      <div class="card-body text-center">
+        <p class="card-text">Id:{{p.id}}</p>
+        <p class="card-text">Product:{{p.spect}}</p>
+        <p class="card-text">Rs.{{p.price}}</p>
+        <button class="btn btn-primary mr-1" (click)="addtocart(p)" style="background-color: darkorange;color:white;">Add To Cart</button>
+      </div>
+    </div>
+</div>

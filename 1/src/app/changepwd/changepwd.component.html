@@ -1,0 +1,42 @@
+<h1> SPECSKART</h1>
+
+<div class="ss">
+  <ul >
+  <li >
+    <a routerLink="cart" (click)="home()" > Home</a>
+    </li>
+      <li >
+        <a> Change Password</a>
+      </li>
+
+  </ul>
+</div>
+<div class="card-body" >
+  <div class="container" >
+<div>
+    <form [formGroup]="chngForm" (ngSubmit)="onSubmit()">
+    
+        <label>Email</label>
+        <input style="width:125px;" formControlName="yemail" type="text" class="form-control" [ngClass]="{'is-invalid':submitted && g.yemail.errors}"/>
+        <div *ngIf="submitted && g.yemail.errors" class="invalid-feedback">
+            <div *ngIf="g.yemail.errors.required">Email is required</div>
+            <div *ngIf="g.yemail.errors.email">Email must Be Valid Format</div>
+        </div>
+        <label>Old Password</label>
+        <input style="width:125px;" formControlName="oldpassword" type="text" class="form-control" [ngClass]="{'is-invalid':submitted && g.oldpassword.errors}"/>
+        <div *ngIf="submitted && g.oldpassword.errors" class="invalid-feedback">
+            <div *ngIf="g.oldpassword.errors.required">Email is required</div>
+        </div>
+        <label>new Password</label>
+        <input style="width:125px;" formControlName="newpassword" type="text" class="form-control" [ngClass]="{'is-invalid':submitted && g.newpassword.errors}"/>
+        <div *ngIf="submitted && g.newpassword.errors" class="invalid-feedback">
+            <div *ngIf="g.newpassword.errors.required">Email is required</div>
+        </div>
+  <br>
+  <br>
+        <button class="btn btn-primary mr-1">Submit</button>
+
+    </form>
+</div>
+</div>
+</div>

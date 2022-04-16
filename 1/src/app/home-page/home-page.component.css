@@ -1,0 +1,32 @@
+#myc{
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+}
+li a{
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 55px;
+    text-decoration: none;
+
+  }
+  h1{
+      text-align: center;
+      color: black;
+  }
+  .ss{
+      text-align: center;
+  }
+  .carousel-inner img {
+    width: 1200px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  

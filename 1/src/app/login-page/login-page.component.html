@@ -1,0 +1,157 @@
+
+<br>
+
+<br>
+<div class="p">
+ <img style="margin-left: 545px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWZ_9h2xOe4QtZZReBS801DIi7ihPi-3xMHj2UYd3uUVTpETeJ" alt="Logo">
+ 
+ <h1 class="text-center">Login</h1>
+<br>
+<br>
+<div style="width: 250px;margin-left: 560px;border: 2px solid grey;padding-left: 10px;box-shadow: 5px 10px;">
+    <div class="card-body" >
+      <div class="container" >
+	     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+		   <div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+        <small class="form-text text-muted" 
+          *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required" >
+            Please enter email address.!
+         </small>
+
+        <small class="form-text text-muted"
+         *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email" >
+          Email address not valid.!
+         </small>
+      </div>
+    
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+         <input type="password" class="form-control" formControlName="password" placeholder="Password">
+         <small class="form-text text-muted" 
+         *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required" >
+           Please enter password.!
+        </small>
+
+        </div>
+       <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" >Login</button>
+      </form>
+   </div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="container">
+    <h4 style="text-align: center;">--------OR---------</h4>
+    <br>
+    <!-- Button to Open the Modal -->
+    <button style="margin-left:510px;margin-right:500px;"type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Register
+    </button>
+  <div class="modal" id="myModal">
+  
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <h5 class="modal-title" style="text-align:center">Book An Appointment</h5>
+      <div class="modal-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit1()">
+            
+                  
+                  <div class="form-group col-5">
+                      <label>Name</label>
+                      <input style="width: 370px;"type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.errors.required"> Name is required</div>
+                      </div>
+                  </div>
+                  
+           
+              <div class="form-row">
+               <div class="form-group col-5" style="margin-left:10px">
+                  <label>Email</label>
+                  <input  style="width: 180px;" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+               </div>            
+              <div class="form-group col-5">
+              <label>Password</label>
+              <input  style="width: 180px;" type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">password is required</div>
+              </div>
+          </div>
+        </div>
+        <div class="ab">
+         <div class="form-row">
+          <div class="form-group col">
+            <label>Country</label>
+       
+              <select formControlName="country" class="form-control"   (change)="states()" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                <option  *ngFor="let c of country"  [value]="c.cname">{{c.cname}}</option>
+            
+              </select>
+              <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                 <div *ngIf="f.country.errors.required">Country is required</div>
+              </div>
+         </div>
+      <div class="form-group col">
+        <label>State</label>
+       
+        <select formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+            <option [ngValue]="s.sname" *ngFor="let s of state">{{s.sname}}</option>
+        </select>
+        <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+            <div *ngIf="f.state.errors.required">State is required</div>
+        </div>
+    </div>
+  </div>
+</div>  
+          <div class="form-group col-5">
+            <label>PhoneNumber</label>
+            <input  style="width: 370px;" type="number" formControlName="phnum" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phnum.errors }" />
+            <div *ngIf="submitted && f.phnum.errors" class="invalid-feedback">
+                <div *ngIf="f.phnum.errors.required">PhoneNumber is required</div>
+                
+            </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-5" style="margin-left:10px">
+            <label>Address</label>
+            <input style="width: 180px;" type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">password is required</div>
+            </div>
+        </div>
+          <div class="form-group col-5">
+            <label>Pincode</label>
+            <input style="width: 180px;"  type="text" formControlName="pin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" />
+            <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                <div *ngIf="f.pin.errors.required ">pin is required</div>
+            </div>
+        </div>
+        </div>
+              <div class="form-group form-check">
+                  <input  type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                  <label style="margin-left:80px" for="acceptTerms" class="form-check-label"> Accept Terms & Conditions</label>
+                  <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary mr-1">Register</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onReset()">Cancel</button>
+              </div>
+          </form>
+      </div>
+  </div>
+  
+  </div>
+  </div>
+ 
+
+</div>
+  
+
+
